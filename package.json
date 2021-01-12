@@ -1,10 +1,11 @@
 {
-  "name": "editorconfig",
+  "name": "@saulmaldonado/editorconfig",
   "version": "1.0.0",
   "description": "saulmaldonado's editorconfig settings",
+  "homepage": "https://github.com/saulmaldonado/editorconfig",
   "main": "index.js",
   "bin": "./index.js",
-  "repository": "https://github.com/saulmaldonado/editorconfig",
+  "repository": "https://github.com/saulmaldonado/editorconfig.git",
   "author": "Saul Maldonado <samaldonado4@gmail.com> (https://saulmaldonado.tech)",
   "license": "MIT"
 }
