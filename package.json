@@ -1,0 +1,10 @@
+{
+  "name": "editorconfig",
+  "version": "1.0.0",
+  "description": "saulmaldonado's editorconfig settings",
+  "main": "index.js",
+  "bin": "./index.js",
+  "repository": "https://github.com/saulmaldonado/editorconfig",
+  "author": "Saul Maldonado <samaldonado4@gmail.com> (https://saulmaldonado.tech)",
+  "license": "MIT"
+}
