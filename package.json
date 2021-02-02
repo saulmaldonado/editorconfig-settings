@@ -4,7 +4,11 @@
   "description": "saulmaldonado's editorconfig settings",
   "homepage": "https://github.com/saulmaldonado/editorconfig",
   "main": "index.js",
-  "bin": "./index.js",
+  "bin": "./dist/index.js",
+  "files": [
+    "./dist/index.js",
+    ".editorconfig"
+  ],
   "repository": "https://github.com/saulmaldonado/editorconfig.git",
   "author": "Saul Maldonado <samaldonado4@gmail.com> (https://saulmaldonado.tech)",
   "license": "MIT",
