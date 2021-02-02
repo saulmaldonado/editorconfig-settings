@@ -1,31 +1,37 @@
 #!/usr/bin/env node
-
-const https = require('https');
 const fs = require('fs');
+const process = require('process');
+const path = require('path');
 
-const options = {
-  hostname: 'raw.githubusercontent.com',
-  port: 443,
-  path: 'saulmaldonado/editorconfig/main/.editorconfig',
-  method: 'GET',
+const parseOptions = () => {
+  const args = process.argv.slice(2);
+  if (args.length === 0) {
+    return null;
+  }
+
+  let outputFile = null;
+
+  if (args[0] === '-o' || args[0] === '--output') {
+    if (args[1] === undefined) {
+      args[1] = '.editorconfig';
+    } else if (!args[1].trim()) {
+      throw new Error('Missing output file path');
+    }
+
+    outputFile = path.resolve(args[1]);
+  }
+
+  return outputFile;
 };
 
-const req = https.request(options, (res) => {
-  console.log('Fetching most recent .editorconfig file...');
-  let configFile = '';
+const outputFile = parseOptions();
 
-  res.on('data', (data) => {
-    configFile += data.toString();
-  });
+const editorconfig = fs.readFileSync(path.join(__dirname, '.editorconfig'), 'utf-8');
 
-  res.on('end', () => {
-    fs.writeFileSync('./.editorconfig', configFile);
-  });
-});
-
-req.on('error', (error) => {
-  console.error(error);
-  process.exitCode(1);
-});
-
-req.end();
+if (outputFile !== null) {
+  console.log(`Writing editorconfig settings to: ${outputFile} ...`);
+  fs.writeFileSync(outputFile, editorconfig);
+  console.log('Done!');
+} else {
+  console.log(editorconfig);
+}
