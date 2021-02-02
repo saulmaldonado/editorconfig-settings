@@ -7,5 +7,16 @@
   "bin": "./index.js",
   "repository": "https://github.com/saulmaldonado/editorconfig.git",
   "author": "Saul Maldonado <samaldonado4@gmail.com> (https://saulmaldonado.tech)",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "babel index.js -d dist"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11"
+  },
+  "engines": {
+    "node": ">=5"
+  }
 }
