@@ -1,0 +1,65 @@
+name: Release and Publish
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install
+        run: yarn --frozen-lockfile
+
+      - name: Build
+        run: yarn build
+
+      - run: |
+          git config user.name 'Github Actions'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+      - name: Bump version
+        id: version
+        run: |
+          echo ::set-output name=ref::$(npm version major -m "chore: Bump to %s")
+
+      - run: git push
+      - run: git push --tags
+
+      - name: Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        with:
+          tag_name: ${{steps.version.outputs.ref}}
+          release_name: ${{steps.version.outputs.ref}}
+
+  publish-npm:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: 'main'
+      - run: yarn --frozen-lockfile
+      - run: yarn build
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+  publish-gpr:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: 'main'
+      - run: npm config set registry "https://npm.pkg.github.com/"
+      - run: yarn --frozen-lockfile
+      - run: yarn build
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
