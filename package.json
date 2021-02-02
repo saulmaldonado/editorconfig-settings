@@ -2,14 +2,17 @@
   "name": "@saulmaldonado/editorconfig-settings",
   "version": "1.0.0",
   "description": "saulmaldonado's editorconfig settings",
-  "homepage": "https://github.com/saulmaldonado/editorconfig",
+  "homepage": "https://github.com/saulmaldonado/editorconfig-settings",
   "main": "index.js",
   "bin": "./dist/index.js",
   "files": [
     "./dist/index.js",
     ".editorconfig"
   ],
-  "repository": "https://github.com/saulmaldonado/editorconfig.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saulmaldonado/editorconfig-settings.git"
+  },
   "author": "Saul Maldonado <samaldonado4@gmail.com> (https://saulmaldonado.tech)",
   "license": "MIT",
   "scripts": {
