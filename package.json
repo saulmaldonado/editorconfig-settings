@@ -3,10 +3,9 @@
   "version": "6.0.0",
   "description": "saulmaldonado's editorconfig settings",
   "homepage": "https://github.com/saulmaldonado/editorconfig-settings",
-  "main": "index.js",
   "bin": "./dist/index.js",
   "files": [
-    "./dist/*"
+    "dist/*"
   ],
   "repository": {
     "type": "git",
