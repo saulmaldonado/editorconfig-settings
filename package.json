@@ -6,8 +6,7 @@
   "main": "index.js",
   "bin": "./dist/index.js",
   "files": [
-    "./dist/index.js",
-    ".editorconfig"
+    "./dist/*"
   ],
   "repository": {
     "type": "git",
@@ -16,7 +15,7 @@
   "author": "Saul Maldonado <samaldonado4@gmail.com> (https://saulmaldonado.tech)",
   "license": "MIT",
   "scripts": {
-    "build": "babel index.js -d dist"
+    "build": "babel index.js .editorconfig -d dist --copy-files"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
