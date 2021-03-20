@@ -1,6 +1,6 @@
 {
   "name": "@saulmaldonado/editorconfig-settings",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "description": "saulmaldonado's editorconfig settings",
   "homepage": "https://github.com/saulmaldonado/editorconfig-settings",
   "bin": "./dist/index.js",
