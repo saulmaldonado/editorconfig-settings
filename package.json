@@ -18,9 +18,9 @@
     "build": "babel index.js .editorconfig -d dist --copy-files"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.10",
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.11"
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10"
   },
   "engines": {
     "node": ">=5"
