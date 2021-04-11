@@ -2,12 +2,14 @@
 
 ## Install
 
+print to console
+
 ```sh
-npx @saulmaldonado/editorconfig
+npx @saulmaldonado/editorconfig-settings
 ```
 
-or to write to a file
+or to write to a file. defaults to `./.editorconfig`
 
 ```sh
-npx @saulmaldonado/editorconfig -o [path/to/file]
+npx @saulmaldonado/editorconfig-settings -o [path/to/file]
 ```
