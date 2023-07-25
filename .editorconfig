@@ -11,3 +11,4 @@ quote_type = single
 
 [Makefile]
 indent_style = tab
+indent_size = 4
